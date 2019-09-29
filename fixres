@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Fixes resolution issues on Arch-based distros running x server on Macbook Pro with HiDPI
+# Run gtf <width> <height> <refresh rate> to generate the mode line.
+xrandr --newmode "HiDPI" 932.84 2880 3136 3456 4032 1800 1801 1804 1928
+# Virtual1 is default for VirtualBox, otherwise run xrandr
+xrandr --addmode Virtual1 HiDPI
+xrandr --output Virtual1 --mode HiDPI --scale 0.60x0.60
+
+# This seems to work for parallels VM (even though 1440x900 is not my res):
+# xrandr --output default --mode 1440x900
